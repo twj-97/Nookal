@@ -52,6 +52,7 @@ class ApiTest{
         
         // LOOP THROUGH EACH PAGE TO GATHER ALL CUSTOMERS
         for($i = 0; $i < $RequestData['page']; $i++) {
+		
         	// RUN CURL REQUEST
         	$APIResult = $this -> request($RequestData);
         	
@@ -64,8 +65,8 @@ class ApiTest{
         			
         			// GET ARRAY KEYS IF FIRST LOOP TO SET AS CSV HEADINGS
         			if($Key === 0) {
-						fputcsv($CSVFile, array_keys($EachPatient));
-					}
+					fputcsv($CSVFile, array_keys($EachPatient));
+				}
         		
         			// PUSH EACH PATIENT ARRAY INTO END RESULT
         			array_push($AllPatients, $EachPatient);
@@ -76,9 +77,10 @@ class ApiTest{
         	
         	// CHECK IF LOOPED THROUGH EACH PAGE
         	if(count($APIResult["data"]["results"]["patients"]) == $RequestData['page_length']) {
-				// INCREMENT PAGE NUMBER
-				$RequestData['page']++;
-			}
+			// INCREMENT PAGE NUMBER
+			$RequestData['page']++;
+		}
+		
         }
         
         // CLOSE CSV FILE
