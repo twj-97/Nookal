@@ -77,7 +77,7 @@ class ApiTest{
         	
         	// CHECK IF LOOPED THROUGH EACH PAGE
         	if(count($APIResult["data"]["results"]["patients"]) == $RequestData['page_length']) {
-                // INCREMENT PAGE NUehrevrerfeirfniruu
+                // INCREMENT PAGE NUehrrj kwiemdiomid freinur refr
                 $RequestData['page']++;
             }
 		
